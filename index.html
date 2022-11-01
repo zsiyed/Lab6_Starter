@@ -17,7 +17,8 @@
   <main>
     <!-- Add Recipes Here -->
   </main>
-  <form id="new-recipe">
+  <!-- For the Explore section - Remove "hidden" class before beginning -->
+  <form id="new-recipe" class="hidden">
     <fieldset>
       <legend>Image:</legend>
       <label for="image-src">
@@ -75,7 +76,8 @@
       </label>
       <label for="ingredients">
         <p>Ingredients:</p>
-        <textarea name="ingredients" id="ingredients" cols="38" rows="5" required></textarea>
+        <textarea name="ingredients" id="ingredients" cols="38" rows="5"
+          required></textarea>
       </label>
     </fieldset>
     <button type="submit">Add Recipe</button>
