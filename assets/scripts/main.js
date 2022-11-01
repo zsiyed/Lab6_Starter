@@ -1,68 +1,85 @@
 // main.js
 
-// Here is where the recipes that you will fetch.
-// Feel free to add your own here for part 2, if they are local files simply add their path as a string.
-const recipes = [
-  'https://introweb.tech/assets/json/ghostCookies.json',
-  'https://introweb.tech/assets/json/birthdayCake.json',
-  'https://introweb.tech/assets/json/chocolateChip.json'
-];
-
-// Once all of the recipes that were specified above have been fetched, their
-// data will be added to this object below. You may use whatever you like for the
-// keys as long as it's unique, one suggestion might but the URL itself
-const recipeData = {}
-
+// Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init);
 
-// This is the first function to be called, so when you are tracing your code start here.
-async function init() {
-  // fetch the recipes and wait for them to load
-  let fetchSuccessful = await fetchRecipes();
-  // if they didn't successfully load, quit the function
-  if (!fetchSuccessful) {
-    console.log('Recipe fetch unsuccessful');
-    return;
-  };
-  // Add the first three recipe cards to the page
-  createRecipeCards();
-  // Make the "Show more" button functional
-  bindShowMore();
+// Starts the program, all function calls trace back here
+function init() {
+  // Get the recipes from localStorage
+  let recipes = getRecipesFromStorage();
+  // Add each recipe to the <main> element
+  addRecipesToDocument(recipes);
+  // Add the event listeners to the form elements
+  initFormHandler();
 }
 
-async function fetchRecipes() {
-  return new Promise((resolve, reject) => {
-    // This function is called for you up above
-    // From this function, you are going to fetch each of the recipes in the 'recipes' array above.
-    // Once you have that data, store it in the 'recipeData' object. You can use whatever you like
-    // for the keys. Once everything in the array has been successfully fetched, call the resolve(true)
-    // callback function to resolve this promise. If there's any error fetching any of the items, call
-    // the reject(false) function.
-
-    // For part 2 - note that you can fetch local files as well, so store any JSON files you'd like to fetch
-    // in the recipes folder and fetch them from there. You'll need to add their paths to the recipes array.
-
-    // Part 1 Expose - TODO
-  });
+/**
+ * Reads 'recipes' from localStorage and returns an array of
+ * all of the recipes found (parsed, not in string form). If
+ * nothing is found in localStorage for 'recipes', an empty array
+ * is returned.
+ * @returns {Array<Object>} An array of recipes found in localStorage
+ */
+function getRecipesFromStorage() {
+  // A9. TODO - Complete the functionality as described in this function
+  //           header. It is possible in only a single line, but should
+  //           be no more than a few lines.
 }
 
-function createRecipeCards() {
-  // This function is called for you up above.
-  // From within this function you can access the recipe data from the JSON 
-  // files with the recipeData Object above. Make sure you only display the 
-  // three recipes we give you, you'll use the bindShowMore() function to
-  // show any others you've added when the user clicks on the "Show more" button.
-
-  // Part 1 Expose - TODO
+/**
+ * Takes in an array of recipes and for each recipe creates a
+ * new <recipe-card> element, adds the recipe data to that card
+ * using element.data = {...}, and then appends that new recipe
+ * to <main>
+ * @param {Array<Object>} recipes An array of recipes
+ */
+function addRecipesToDocument(recipes) {
+  // A10. TODO - Get a reference to the <main> element
+  // A11. TODO - Loop through each of the recipes in the passed in array,
+  //            create a <recipe-card> element for each one, and populate
+  //            each <recipe-card> with that recipe data using element.data = ...
+  //            Append each element to <main>
 }
 
-function bindShowMore() {
-  // This function is also called for you up above.
-  // Use this to add the event listener to the "Show more" button, from within 
-  // that listener you can then create recipe cards for the rest of the .json files
-  // that were fetched. You should fetch every recipe in the beginning, whether you
-  // display it or not, so you don't need to fetch them again. Simply access them
-  // in the recipeData object where you stored them/
+/**
+ * Takes in an array of recipes, converts it to a string, and then
+ * saves that string to 'recipes' in localStorage
+ * @param {Array<Object>} recipes An array of recipes
+ */
+function saveRecipesToStorage(recipes) {
+  // EXPLORE - START (All explore numbers start with B)
+  // B1. TODO - Complete the functionality as described in this function
+  //            header. It is possible in only a single line, but should
+  //            be no more than a few lines.
+}
 
-  // Part 2 Explore - TODO
+/**
+ * Adds the necesarry event handlers to <form> and the clear storage
+ * <button>.
+ */
+function initFormHandler() {
+
+  // B2. TODO - Get a reference to the <form> element
+  
+  // B3. TODO - Add an event listener for the 'submit' event, which fires when the
+  //            submit button is clicked
+
+  // Steps B4-B9 will occur inside the event listener from step B3
+  // B4. TODO - Create a new FormData object from the <form> element reference above
+  // B5. TODO - Create an empty object (I'll refer to this object as recipeObject to
+  //            make this easier to read), and then extract the keys and corresponding
+  //            values from the FormData object and insert them into recipeObject
+  // B6. TODO - Create a new <recipe-card> element
+  // B7. TODO - Add the recipeObject data to <recipe-card> using element.data
+  // B8. TODO - Append this new <recipe-card> to <main>
+  // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
+  //            then save the recipes array back to localStorage
+
+  // B10. TODO - Get a reference to the "Clear Local Storage" button
+  // B11. TODO - Add a click event listener to clear local storage button
+  
+  // Steps B12 & B13 will occur inside the event listener from step B11
+  // B12. TODO - Clear the local storage
+  // B13. TODO - Delete the contents of <main>
+
 }

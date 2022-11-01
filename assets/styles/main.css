@@ -9,18 +9,33 @@ body {
   width: 100%;
 }
 
-body>div>button {
-  background-color: white;
-  border: 1px solid rgb(223, 225, 229);
-  border-radius: 40px;
-  padding: 8px 100px;
-  position: relative;
-  z-index: 2;
+fieldset {
+  border: 2px solid rgb(214, 214, 214);
+  box-sizing: border-box;
+  display: block;
+  width: max-content;
 }
 
-body>div>button:hover {
-  cursor: pointer;
-  filter: brightness(96%);
+form button {
+  display: block;
+  margin-top: 5px;
+}
+
+label[for="ingredients"] p {
+  margin: 0;
+}
+
+label[for="numRatings"] {
+  margin: 10px 0 0 0;
+}
+
+label[for^="rating"] {
+  padding-right: 10px;
+}
+
+label:not([for^="rating"]) {
+  display: block;
+  margin-bottom: 5px;
 }
 
 main {
@@ -33,26 +48,7 @@ main {
   width: 100%;
 }
 
-#button-horizontal-line {
-  border-top: 1px solid rgb(223, 225, 229);
-  position: absolute;
-  margin-top: -16.5px;
-  width: 656px;
-  z-index: 1;
-}
-
-#button-wrapper {
-  display: grid;
-  justify-items: center;
-  margin-top: 20px;
-  width: 656px;
-}
-
-#button-wrapper>img {
-  filter: opacity(0.7);
-  margin-left: -120px;
-  margin-top: 10px;
-  position: absolute;
-  width: 13px;
-  z-index: 3;
+.danger {
+  background-color: rgb(254, 171, 171);
+  border-color: red;
 }
